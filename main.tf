@@ -74,10 +74,4 @@ resource "digitalocean_firewall" "kohut_fw" {
   }
 }
 
-# -------------------
-# Spaces Bucket
-# -------------------
-resource "digitalocean_spaces_bucket" "kohut_bucket" {
-  name   = "kohut-bucket"
-  region = "fra1"
-}
+
