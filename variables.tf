@@ -9,14 +9,4 @@ variable "ssh_fingerprint" {
   type        = string
 }
 
-variable "spaces_access_key" {
-  description = "Spaces access key"
-  type        = string
-  sensitive   = true
-}
 
-variable "spaces_secret_key" {
-  description = "Spaces secret key"
-  type        = string
-  sensitive   = true
-}
