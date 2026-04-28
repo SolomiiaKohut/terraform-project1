@@ -12,6 +12,7 @@ jobs:
       AWS_ACCESS_KEY_ID: ${{ secrets.SPACES_ACCESS_KEY }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.SPACES_SECRET_KEY }}
       AWS_DEFAULT_REGION: fra1
+      
       TF_VAR_do_token: ${{ secrets.DO_TOKEN }}
       TF_VAR_ssh_fingerprint: ${{ secrets.SSH_FINGERPRINT }}
 
