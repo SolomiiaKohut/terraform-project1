@@ -1,8 +1,6 @@
 terraform {
   backend "s3" {
-    endpoints = {
-      s3 = "https://fra1.digitaloceanspaces.com"
-    }
+    endpoint = "https://fra1.digitaloceanspaces.com"
     bucket = "kohut-bucket"
     key    = "terraform.tfstate"
     region = "us-east-1"
