@@ -19,7 +19,7 @@ jobs:
         run: terraform init
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.SPACES_KEY }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.SPACES_SECRET }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.SPACES_SECRET_KEY }}
 
       - name: Terraform Validate
         run: terraform validate
