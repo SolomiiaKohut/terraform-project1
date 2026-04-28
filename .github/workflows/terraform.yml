@@ -8,6 +8,11 @@ jobs:
   terraform:
     runs-on: ubuntu-latest
 
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.SPACES_ACCESS_KEY }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.SPACES_SECRET_KEY }}
+      AWS_DEFAULT_REGION: fra1
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -15,39 +20,18 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
 
-      # ---------------------------
-      # Terraform Init (Spaces backend)
-      # ---------------------------
       - name: Terraform Init
         run: terraform init
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.SPACES_ACCESS_KEY }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.SPACES_SECRET_KEY }}
 
-      # ---------------------------
-      # Format check (optional but recommended)
-      # ---------------------------
-      - name: Terraform Format Check
-        run: terraform fmt -check
-
-      # ---------------------------
-      # Validate configuration
-      # ---------------------------
       - name: Terraform Validate
         run: terraform validate
 
-      # ---------------------------
-      # Plan (DO provider credentials only)
-      # ---------------------------
       - name: Terraform Plan
         run: terraform plan
         env:
           TF_VAR_do_token: ${{ secrets.DO_TOKEN }}
           TF_VAR_ssh_fingerprint: ${{ secrets.SSH_FINGERPRINT }}
 
-      # ---------------------------
-      # Apply (only if everything is OK)
-      # ---------------------------
       - name: Terraform Apply
         if: success()
         run: terraform apply -auto-approve
