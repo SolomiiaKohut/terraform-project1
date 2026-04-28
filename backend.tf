@@ -1,9 +1,9 @@
 terraform {
   backend "s3" {
     endpoint = "https://fra1.digitaloceanspaces.com"
-    bucket = "kohut-bucket"
-    key    = "terraform.tfstate"
-    region = "us-east-1"
+    bucket   = "kohut-bucket"
+    key      = "terraform.tfstate"
+    region   = "us-east-1"
 
 
     skip_credentials_validation = true
