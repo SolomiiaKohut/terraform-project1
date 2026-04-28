@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
     bucket = "kohut-bucket"
-    key    = "/terraform.tfstate"
+    key    = "terraform.tfstate"
     region = "us-east-1"
 
     endpoints = {
