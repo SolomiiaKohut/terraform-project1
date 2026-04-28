@@ -8,11 +8,3 @@ variable "ssh_fingerprint" {
   description = "SSH key fingerprint from DigitalOcean"
   type        = string
 }
-
-variable "spaces_access_key" {
-
-}
-
-variable "spaces_secret_key" {
-
-}
